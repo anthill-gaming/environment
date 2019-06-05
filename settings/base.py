@@ -27,7 +27,7 @@ LOCALE_PATH = os.path.join(BASE_DIR, 'locale')
 # APPLICATION_CLASS = 'environment.apps.AnthillApplication'
 APPLICATION_NAME = 'environment'
 APPLICATION_VERBOSE_NAME = _('Environment')
-APPLICATION_DESCRIPTION = _('Service description')
+APPLICATION_DESCRIPTION = _('Provide application versions environment bindings')
 APPLICATION_ICON_CLASS = 'icon-cube'
 APPLICATION_COLOR = 'info'
 
