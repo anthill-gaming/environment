@@ -1,3 +1,4 @@
 Environment
 =============================================
-Provide application versions environment bindings
+Provide application versions environment bindings.
+Currently under heavy development.
