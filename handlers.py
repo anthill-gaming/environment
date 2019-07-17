@@ -1,7 +1,8 @@
-from anthill.platform.auth.handlers import UserRequestHandler
+from anthill.framework.handlers import RequestHandler
+from anthill.platform.handlers import UserHandlerMixin
 
 
-class DiscoverHandler(UserRequestHandler):
+class DiscoverHandler(RequestHandler, UserHandlerMixin):
     async def get(self, app_name, app_version):
         pass
 
