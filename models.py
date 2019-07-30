@@ -43,8 +43,21 @@ class Environment(db.Model):
     name = db.Column(db.String(64), unique=True)
     description = db.Column(db.String(512), nullable=False)
     discovery = db.Column(URLType, nullable=False)
-    payload = db.Column(JSONType, nullable=False, default={})
+
+    scheme_id = db.Column(db.Integer, db.ForeignKey('payload_scheme.id'), nullable=False)
+    payload = db.Column(JSONType, nullable=False, default={})  # defined by ``scheme``
+
     color = db.Column(ColorType)
     enabled = db.Column(db.Boolean, nullable=False, default=True)
 
     app_versions = db.relationship('ApplicationVersion', backref='environment', lazy='dynamic')
+    scheme = db.relationship('PayloadScheme')
+
+
+class PayloadScheme(db.Model):
+    __tablename__ = 'payload_scheme'
+
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(64), unique=True)
+    description = db.Column(db.String(512))
+    payload = db.Column(JSONType, nullable=False, default={})

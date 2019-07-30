@@ -25,16 +25,16 @@ class ApplicationVersionHandler(CreatingMixin, UpdatingMixin, DeletionMixin, Det
     slug_field = 'value'
 
     def get_queryset(self):
-        queryset = ApplicationVersion.query.filter_by(enabled=True)
-        queryset = queryset.filter_by(name=self.path_kwargs['name'])
+        kwargs = dict(enabled=True, name=self.path_kwargs['name'])
+        queryset = ApplicationVersion.query.filter_by(**kwargs)
         return queryset
 
 
 class ApplicationVersionListHandler(ListHandler):
     """Get list of application versions."""
     def get_queryset(self):
-        queryset = ApplicationVersion.query.filter_by(enabled=True)
-        queryset = queryset.filter_by(name=self.path_kwargs['name'])
+        kwargs = dict(enabled=True, name=self.path_kwargs['name'])
+        queryset = ApplicationVersion.query.filter_by(**kwargs)
         return queryset
 
 
